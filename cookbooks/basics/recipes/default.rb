@@ -9,6 +9,7 @@
 bash "install EPEL repo" do
   code <<-"EOH"
     /usr/bin/yum install -y http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    /usr/bin/yum groupinstall "Development tools"
   EOH
   action :run
   not_if "/bin/ls /etc/yum.repos.d/ | grep epel.repo"
