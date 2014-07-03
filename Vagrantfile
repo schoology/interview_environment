@@ -22,9 +22,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # run with : python manage.py runserver 0.0.0.0:8000;
   config.vm.provision :shell, :inline => "
-    if [ ! -d \"/vagrant/python/interview\" ]; then
-      cd /vagrant/python/;
+    if [ ! -d \"/vagrant/src/interview\" ]; then
+      cd /vagrant/src/;
       django-admin startproject interview;
-      cd interview;
     fi"
 end
