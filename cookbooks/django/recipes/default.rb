@@ -1,16 +1,11 @@
 #
 # vi: set ft=ruby :
 #
-# Cookbook name: apache2
+# Cookbook name: django
 # Recipe: default
 #
 
-# ensure that the httpd package is installed.
 package "python" do
-  action :install
-end
-
-package "Django" do
   action :install
 end
 
@@ -22,18 +17,25 @@ package "python-pip" do
   action :install
 end
 
+bash "pip install Django==1.6.5" do
+  code <<-"EOH"
+    pip install Django==1.6.5
+  EOH
+  not_if "pip list | grep -c Django"
+end
+
 package "MySQL-python" do
   action :install
 end
-
 
 bash "pip install MySQL-python" do
   code <<-"EOH"
     pip install MySQL-python
   EOH
+  not_if "pip list | grep -c MySQL-python"
 end
 
-# make sure that iptables allows for input/output on the port django will run on port 8000
+# make sure that iptables allows for input/output on the port django will run on port 3000
 bash 'iptables open port 8000' do
   code <<-"EOH"
     /sbin/iptables -I INPUT -p tcp --dport 8000 -m state --state NEW,ESTABLISHED -j ACCEPT

@@ -6,6 +6,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "interview-env"
   config.vm.network :forwarded_port, guest: 80, host: 8090 # Apache
   config.vm.network :forwarded_port, guest:8000, host: 8091 # Django
+  config.vm.network :forwarded_port, guest:3000, host: 8092 # RoR
+  config.vm.network :forwarded_port, guest:3306, host: 3310 # MySQL
 
   config.vm.provider :virtualbox do |vb|
   	vb.customize ["modifyvm", :id, "--memory", "2048"]
@@ -18,12 +20,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "apache2"
     chef.add_recipe "mysql"
     chef.add_recipe "django"
+    chef.add_recipe "rvm::system"
+    chef.add_recipe "rvm::vagrant"
+    chef.add_recipe "rails"
+
+    chef.json = {
+      'rvm' => {
+         'rubies' => ["ruby-2.1.2", "ruby-1.9.3-p327"],
+         'default_ruby' => "ruby-2.1.2",
+         :vagrant => { :system_chef_solo => "/opt/chef/bin/chef-solo" }
+      }
+    }
+
   end
 
-  # run with : python manage.py runserver 0.0.0.0:8000;
+  # Place any scripts in the path
   config.vm.provision :shell, :inline => "
-    if [ ! -d \"/vagrant/src/interview\" ]; then
-      cd /vagrant/src/;
-      django-admin startproject interview;
-    fi"
+    sudo ln -s /vagrant/scripts/* /usr/local/bin/"
 end

@@ -10,6 +10,10 @@ package "mysql-server" do
   action :install
 end
 
+package "mysql-devel" do
+  action :install
+end
+
 # enable the service on boot, and make sure it is started
 service "mysqld" do
   action [ :enable, :start ]

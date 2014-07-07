@@ -15,3 +15,10 @@ bash "install EPEL repo" do
   not_if "/bin/ls /etc/yum.repos.d/ | grep epel.repo"
 end
 
+package "zlib" do
+  action :install
+end
+
+package "zlib-devel" do
+  action :install
+end
