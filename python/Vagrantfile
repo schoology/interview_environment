@@ -25,5 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Place any scripts in the path
   config.vm.provision :shell, :inline => "
-    sudo ln -s /vagrant/scripts/* /usr/local/bin/"
+    if [ ! -h /usr/local/bin/setup_ror.sh ]; then
+      sudo ln -s /vagrant/scripts/* /usr/local/bin/
+    fi"
 end

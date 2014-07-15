@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     chef.json = {
       'rvm' => {
-         'rubies' => ["ruby-2.1.2", "ruby-1.9.3-p327"],
+         'rubies' => ["ruby-2.1.2"],
          'default_ruby' => "ruby-2.1.2",
          :vagrant => { :system_chef_solo => "/opt/chef/bin/chef-solo" }
       }
@@ -36,5 +36,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Place any scripts in the path
   config.vm.provision :shell, :inline => "
-    sudo ln -s /vagrant/scripts/* /usr/local/bin/"
+    if [ ! -h /usr/local/bin/setup_ror.sh ]; then
+      sudo ln -s /vagrant/scripts/* /usr/local/bin/
+    fi"
 end
