@@ -6,6 +6,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "interview-env-php"
   config.vm.network :forwarded_port, guest: 80, host: 8090 # Apache
   config.vm.network :forwarded_port, guest:3306, host: 3310 # MySQL
+  config.vm.synced_folder "src/codeigniter/", "/var/www/html/"
 
   config.vm.provider :virtualbox do |vb|
   	vb.customize ["modifyvm", :id, "--memory", "2048"]
@@ -15,9 +16,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "../cookbooks"
-  end
-
-  config.vm.provision :chef_solo do |chef|
     chef.add_recipe "basics"
     chef.add_recipe "apache2"
     chef.add_recipe "mysql"
@@ -25,7 +23,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Place any scripts in the path
   config.vm.provision :shell, :inline => "
-    if [ ! -h /usr/local/bin/setup_ror.sh ]; then
-      sudo ln -s /vagrant/scripts/* /usr/local/bin/
-    fi"
+    sudo setenforce 0"
 end
