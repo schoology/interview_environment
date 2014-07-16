@@ -21,6 +21,13 @@ bash 'iptables open port 80' do
   not_if "/sbin/iptables -L -v | /bin/grep httpd"
 end
 
+template "/etc/httpd/conf/httpd.conf" do
+                source "httpd.conf.erb"
+                mode 0644
+                owner "root"
+                group "root"                
+end
+
 service "httpd" do
   action [:enable, :start]
 end
