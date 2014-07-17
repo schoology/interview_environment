@@ -9,16 +9,8 @@ package "ruby-devel" do
   action :install
 end
 
-gem_package "mysql" do
-  action :install
-end
-
-gem_package "sinatra" do
-  action :install
-end
-
 # make sure that iptables allows for input/output on the port sinatra will run on - port 3000
-bash 'iptables open port 3000' do
+bash 'iptables open port 4567' do
   code <<-"EOH"
     /sbin/iptables -I INPUT -p tcp --dport 4567 -m state --state NEW,ESTABLISHED -j ACCEPT
     /sbin/iptables -I OUTPUT -p tcp --dport 4567 -m state --state ESTABLISHED -j ACCEPT

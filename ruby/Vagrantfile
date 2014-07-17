@@ -25,7 +25,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       'rvm' => {
          'rubies' => ["ruby-2.1.2"],
          'default_ruby' => "ruby-2.1.2",
-         :vagrant => { :system_chef_solo => "/opt/chef/bin/chef-solo" }
+         :vagrant => { :system_chef_solo => "/opt/chef/bin/chef-solo" },
+         'gems' => {
+            "ruby-2.1.2" => [
+              {'name' => 'sinatra'}
+            ]
+         }
       }
     }
 
