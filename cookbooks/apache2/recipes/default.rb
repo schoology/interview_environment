@@ -37,6 +37,11 @@ package "php" do
   notifies :restart, 'service[httpd]', :delayed
 end
 
+package "php-mysql" do
+  action :install
+  notifies :restart, 'service[httpd]', :delayed
+end
+
 # install mod_fcgid
 package "mod_fcgid" do
   action :install
