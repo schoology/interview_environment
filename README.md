@@ -15,14 +15,9 @@
 
 Installing the vagrant-vbguest plugin is necessary to ensure that vagrant checks that the version of VirtualBox Guest Additions installed on the guest operating system matches the version of VirtualBox being used to run the virtual machine. In cases where the VirtualBox Guest Addtions version does not match the version of VirtualBox, you may see vagrant report errors or have trouble providing basic functionality such as networking or mapping of shared drives.
 
-# Setup
+# Vagrant Overview
 
-The Vagrant provisioner script uses a contributed cookbook called [chef-rvm](https://github.com/fnichol/chef-rvm). Before starting and provisioning the guest virtualbox make sure the git submodule is included. To do this run
-
-	git submodule init
-	git submodule update 
-
-After doing this move into the directory of the environment you would like to use (php, ruby, python) - this is where the Vagrantfiles are.
+[Vagrant](http://www.vagrantup.com/) is a tool to programmatically manipulate and provision virtualboxes.
 
 To start the Virtualbox and run any provisioning run
 
@@ -37,32 +32,22 @@ To get a shell connection within the virtualbox run
 
     vagrant ssh
 
+# Project Overview
+
+In order to effectively assess applicants in a variety of languages, we needed a fast way to setup technology stacks ready to be developed on. This project aims to do just that. There are three directories each containing a Vagrantfile that will provision a box ready to be developed on in that language.
+
 # Connecting to MySQL
-From the host machine you can connect using the following credentials
+Each flavor of virtualbox has MySQL installed. To connect from the host machine you can connect using the following credentials
 
 * **Host**: 127.0.0.1 (e.g. localhost to your workstation)
 * **Port**: 3310 
 * **Username**: interview
 * **Password**: interview
 
-# Starting Django
-To setup Django, run the following within the virtualbox
+# The PHP Box
+To set up the PHP box, go to the root directory of the project and run
 
-	setup_python.sh
+    cd php
+    vagrant up
 
-This script should be in your path. After setting up Django you can start the server by running
-
-	cd /vagrant/src/python/interview; python manage.py runserver 0.0.0.0:8000
-
-You can view the running Django server at [http://localhost:8091/](http://localhost:8091/). The app at this point has been setup to connect to a mysql database (interview).
-
-# Starting Ruby on Rails
-To setup Ruby on Rails, run the following within the virtualbox
-    
-    setup_ror.sh
-    
-This script should be in your path. After setup is complete, you can start the server by running
-
-    cd /vagrant/src/ruby/interview; bin/rails server
-    
-You can view the running Ruby on Rails application at [http://localhost:8092/](http://localhost:8092/). The application is configured to connect to a mysql database (interview).
+The PHP box mounts the src/codeigniter source at the boxes apache docroot. If you couldn't tell from the directory name, we have setup [codeigniter](http://ellislab.com/codeigniter) as the PHP framework. Codeigniter is a very simple MVC framework. After provisioning is complete you should be able to see the Codeigniter application running at [http://localhost:8090/home](http://localhost:8090/home)

@@ -4,7 +4,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "CentOS-6.5-x86_64-puppet-chef"
   config.vm.box_url = "http://279020f5c10bc4f81e01-96f7502f2b1256957419f890585e776c.r12.cf2.rackcdn.com/CentOS-6.5-x86_64-puppet-chef.box"
   config.vm.hostname = "interview-env-ruby"
-  config.vm.network :forwarded_port, guest:3000, host: 8092 # RoR
+  config.vm.network :forwarded_port, guest:4567, host: 8092 # RoR
   config.vm.network :forwarded_port, guest:3306, host: 3310 # MySQL
 
   config.vm.provider :virtualbox do |vb|
@@ -15,14 +15,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "../cookbooks"
-  end
-
-  config.vm.provision :chef_solo do |chef|
     chef.add_recipe "basics"
     chef.add_recipe "mysql"
     chef.add_recipe "rvm::system"
     chef.add_recipe "rvm::vagrant"
-    chef.add_recipe "rails"
+    chef.add_recipe "sinatra"
 
     chef.json = {
       'rvm' => {
@@ -33,10 +30,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
   end
-
-  # Place any scripts in the path
-  config.vm.provision :shell, :inline => "
-    if [ ! -h /usr/local/bin/setup.sh ]; then
-      sudo ln -s /vagrant/scripts/* /usr/local/bin/
-    fi"
 end

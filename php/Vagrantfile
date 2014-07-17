@@ -17,6 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "../cookbooks"
     chef.add_recipe "basics"
+    chef.add_recipe "selinux::disabled"
     chef.add_recipe "apache2"
     chef.add_recipe "mysql"
   end
