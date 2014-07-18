@@ -14,6 +14,5 @@ DB_CONFIG = YAML::load(File.open('config/database.yml'))
 con = Mysql.new('localhost', DB_CONFIG['username'], DB_CONFIG['password'], 'interview')
 
 get '/' do
-  con.query("INSERT INTO wonks (title) VALUES('foo')");
   erb :content
 end
