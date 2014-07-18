@@ -28,7 +28,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
          :vagrant => { :system_chef_solo => "/opt/chef/bin/chef-solo" },
          'gems' => {
             "ruby-2.1.2" => [
-              {'name' => 'sinatra'}
+              {'name' => 'sinatra'},            
+              {'name' => 'mysql'},
+              {'name' => 'rerun'}
             ]
          }
       }

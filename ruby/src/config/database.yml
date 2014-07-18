@@ -1,0 +1,5 @@
+database: interview
+username: interview
+password: interview
+host: localhost
+port: 3306
