@@ -56,3 +56,17 @@ If you are unfamiliar with codeigniter it might be worth briefly familiarizing y
 
 * Codeigniter has a built in database abstraction layer and provisioning sets things up so you are ready to start writing queries against the MySQL database (after creating a schema and loading it with data). Read more about the [codeigniter database library](http://ellislab.com/codeigniter/user-guide/database/examples.html)
 * Templating in codeigniter is extremely simple but it is still worth taking note on how it is done. Read more about [codeigniter views](http://ellislab.com/codeigniter/user-guide/general/views.html)
+
+# The Ruby Box
+To set up the Ruby box, go to the root directory of the project and run
+
+    cd ruby
+    vagrant up
+
+The Ruby box has [Sinatra](http://www.sinatrarb.com/) installed on it by default. In the src directory there is a very basic interview.rb file which establishes a connection and adds one route that displays a basic template.
+### A bit about Sinatra
+Sinatra is an extremely simple framework that helps you create a basic web application. A few things worht highlighting:
+* It will be important to understand the templating used in the application in order to build UI's. Out of the box, this Sinatra install uses [erubis](http://www.kuwata-lab.com/erubis/) templating which comes with Ruby. If you feel comfortable with a different templating feel free to plug it in.
+* Ruby has [MySQL/Ruby](http://www.tmtm.org/en/mysql/ruby/) installed out of the box
+* The box also has activerecord installed
+
