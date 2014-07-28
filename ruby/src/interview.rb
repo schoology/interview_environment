@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'mysql'
 require 'yaml'
+require 'active_record'
 
 configure do
 	enable :logging
