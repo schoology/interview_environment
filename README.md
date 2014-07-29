@@ -35,6 +35,13 @@ To simply provision an already running box run
 To get a shell connection within the virtualbox run 
 
       vagrant ssh
+      
+**Note** - if you are running this on a Windows machine you will not have ssh available to you. You can use a client like [PuTTY](http://www.putty.org/) to connect to the box. The connection credentials for the client will look like:
+
+* **Host**: 127.0.0.1
+* **Port**: 2222
+* **Username**: vagrant
+* **Password**: vagrant
 
 # Project Overview
 
@@ -74,6 +81,14 @@ Sinatra is an extremely simple framework that helps you create a basic web appli
 * Ruby has [MySQL/Ruby](http://www.tmtm.org/en/mysql/ruby/) installed out of the box
 * The box also has activerecord installed
 
+### Running Sinatra
+You can start the application by ssh'ing into the virtualbox and navigating to the main ruby script already prepared for you
+
+    cd /vagrant/src
+    ruby interview.rb
+
+You can view the running Sinatra application on your host machine by browsing to [https://localhost:8092/](https://localhost:8092/)
+
 # The Python Box
 To set up the Python box, go to the root directory of the project and run
 
@@ -86,4 +101,11 @@ web.py is a simple Python framework that helps you create a basic web applicatio
 * Web.py comes with a templating framework called Templator. You can find the Templator documentation here [http://webpy.org/docs/0.3/templetor](http://webpy.org/docs/0.3/templetor)
 * Web.py comes with a database wrapper which you can read more about here [http://webpy.org/docs/0.3/tutorial#databasing](http://webpy.org/docs/0.3/tutorial#databasing). The interview.py file that comes in the repo will take care of establishing the connection to the MySQL server installed on the box.
 
+### Running Web.py
+You can start the application by ssh'ing into the virtualbox and navigating to the main python script already prepared for you
+
+    cd /vagrant/src
+    python interview.py
+
+You can view the running Web.py application on your host machine by browsing to [https://localhost:8091/](https://localhost:8091/)
 
