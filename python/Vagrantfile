@@ -4,7 +4,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "CentOS-6.5-x86_64-puppet-chef"
   config.vm.box_url = "http://279020f5c10bc4f81e01-96f7502f2b1256957419f890585e776c.r12.cf2.rackcdn.com/CentOS-6.5-x86_64-puppet-chef.box"
   config.vm.hostname = "interview-env-python"
-  config.vm.network :forwarded_port, guest:8000, host: 8091 # Python Web Apps
+  config.vm.network :forwarded_port, guest:8080, host: 8091 # Python Web Apps
   config.vm.network :forwarded_port, guest:3306, host: 3310 # MySQL
 
   config.vm.provider :virtualbox do |vb|

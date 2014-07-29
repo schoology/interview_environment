@@ -19,10 +19,10 @@ python_pip "web.py" do
 end
 
 # make sure that iptables allows for input/output on the port django will run on port 3000
-bash 'iptables open port 8000' do
+bash 'iptables open port 8080' do
   code <<-"EOH"
-    /sbin/iptables -I INPUT -p tcp --dport 8000 -m state --state NEW,ESTABLISHED -j ACCEPT
-    /sbin/iptables -I OUTPUT -p tcp --dport 8000 -m state --state ESTABLISHED -j ACCEPT
+    /sbin/iptables -I INPUT -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
+    /sbin/iptables -I OUTPUT -p tcp --dport 8080 -m state --state ESTABLISHED -j ACCEPT
     /sbin/service iptables save
   EOH
   action :run

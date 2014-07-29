@@ -7,6 +7,6 @@ class Home extends MY_Controller{
 	}
 
 	function index(){
-		$this->render_page("My Interview Solution");
+		$this->render_page("My PHP Solution");
 	}
 }
