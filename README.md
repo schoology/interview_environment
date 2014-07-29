@@ -10,10 +10,15 @@
 
 4. Once vagrant and virtaulbox are installed, open up a command line and execute the following (note: In windows you should make sure vagrant is in your PATH environment variable).
         
-        vagrant plugin install vagrant-omnibus
-        vagrant plugin install vagrant-vbguest
+      vagrant plugin install vagrant-omnibus
+      vagrant plugin install vagrant-vbguest
 
 Installing the vagrant-vbguest plugin is necessary to ensure that vagrant checks that the version of VirtualBox Guest Additions installed on the guest operating system matches the version of VirtualBox being used to run the virtual machine. In cases where the VirtualBox Guest Addtions version does not match the version of VirtualBox, you may see vagrant report errors or have trouble providing basic functionality such as networking or mapping of shared drives.
+
+5. Finally, clone the repo and checkout any submodules
+
+      git submodule init
+      git submodule update
 
 # Vagrant Overview
 
