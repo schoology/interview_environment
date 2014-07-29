@@ -1,3 +1,11 @@
+# Project Overview
+
+In order to effectively assess applicants in a variety of languages, we needed a fast way to setup technology stacks ready to be developed on. This project aims to do just that. There are three directories each containing a Vagrantfile that will provision a box ready to be developed on in that language. After setting Vagrant and Virtualbox up (outlined below) you can read more about setting up your chosen environment in the README's specific to that environment. Those README's also describe a bit about the frameworks used in the environment
+
+* [The PHP Box](php/)
+* [The Ruby Box](ruby/)
+* [The Python Box](python/)
+
 # Prerequisites
 1. Ensure your host computer has the following minimum specifications:
    * __Memory:__ 4Gb
@@ -43,10 +51,6 @@ To get a shell connection within the virtualbox run
 * **Username**: vagrant
 * **Password**: vagrant
 
-# Project Overview
-
-In order to effectively assess applicants in a variety of languages, we needed a fast way to setup technology stacks ready to be developed on. This project aims to do just that. There are three directories each containing a Vagrantfile that will provision a box ready to be developed on in that language.
-
 # Connecting to MySQL
 Each flavor of virtualbox has MySQL installed. To connect from the host machine you can connect using the following credentials
 
@@ -55,11 +59,5 @@ Each flavor of virtualbox has MySQL installed. To connect from the host machine 
 * **Username**: interview
 * **Password**: interview
 
-# Available Environment's
 
-Each directory (except cookbooks) has a seperate Vagrantfile that sets up a virtualbox with a stack specific to that language.
-
-* [The PHP Box](php/)
-* [The Ruby Box](ruby/)
-* [The Python Box](python/)
  
