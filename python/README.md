@@ -1,8 +1,5 @@
 # The Python Box
-To set up the Python box, go to the root directory of the project and run
-
-    cd python
-    vagrant up
+To set up the Python box, run `vagrant up` from this directory.
 
 The Python box has [web.py](http://webpy.org/) installed on it by default. In the src directory there is a very basic interview.py file which establishes a connection and adds one url that displays a basic template.
 ### A bit about Web.py
