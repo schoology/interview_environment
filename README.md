@@ -13,9 +13,9 @@ In order to effectively assess applicants in a variety of languages, we needed a
 
 2. git needs to be installed on your machine so this repository can be checked out and submodules can be included
 
-3. First, download and install [Virtualbox](https://www.virtualbox.org/) which is the default virtualization technology used by vagrant.
+3. Download and install [Virtualbox](https://www.virtualbox.org/) which is the default virtualization technology used by vagrant.
 
-4. Next, download and install [vagrant](http://www.vagrantup.com/) which should be considered a driver, or front-end for various virtualization technologies (e.g. Virtualbox).
+4. Download and install [vagrant](http://www.vagrantup.com/) which should be considered a driver, or front-end for various virtualization technologies (e.g. Virtualbox).
 
 5. Once vagrant and virtaulbox are installed, open up a command line and execute the following (note: In windows you should make sure vagrant is in your PATH environment variable).
         
