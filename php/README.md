@@ -1,8 +1,5 @@
 # The PHP Box
-To set up the PHP box, go to the root directory of the project and run
-
-    cd php
-    vagrant up
+To set up the PHP box, run `vagrant up` from this directory.
 
 The PHP box mounts the src/codeigniter source at the boxes apache docroot. If you couldn't tell from the directory name, we have setup [codeigniter](http://ellislab.com/codeigniter) as the PHP framework. Codeigniter is a very simple MVC framework. After provisioning is complete you should be able to see the Codeigniter application running at [http://localhost:8090/home](http://localhost:8090/home).
 ### A bit about Codeigniter
