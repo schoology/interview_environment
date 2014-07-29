@@ -59,7 +59,7 @@ Each flavor of virtualbox has MySQL installed. To connect from the host machine 
 
 Each directory (except cookbooks) has a seperate Vagrantfile that sets up a virtualbox with a stack specific to that language.
 
-* [The PHP Box](php/README.md)
-* [The Ruby Box](ruby/README.md)
-* [The Python Box](python/README.md)
+* [The PHP Box](php/)
+* [The Ruby Box](ruby/)
+* [The Python Box](python/)
  
