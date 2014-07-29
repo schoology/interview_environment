@@ -1,8 +1,5 @@
 # The Ruby Box
-To set up the Ruby box, go to the root directory of the project and run
-
-    cd ruby
-    vagrant up
+To set up the Ruby box, run `vagrant up` from this directory.
 
 The Ruby box has [Sinatra](http://www.sinatrarb.com/) installed on it by default. In the src directory there is a very basic interview.rb file which establishes a connection and adds one route that displays a basic template.
 ### A bit about Sinatra
