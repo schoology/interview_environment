@@ -5,27 +5,17 @@
 # Recipe: default
 #
 
-package "python" do
-  action :install
-end
-
-package "python-devel" do
-  action :install
-end
-
-package "python-pip" do
-  action :install
-end
-
 # package "MySQL-python" do
+#   provider Chef::Provider::PythonPip
 #   action :install
 # end
 
-bash "pip install MySQL-python" do
-  code <<-"EOH"
-    pip install MySQL-python
-  EOH
-  not_if "pip list | grep -c MySQL-python"
+python_pip "MySQL-python" do
+  action :install
+end
+
+python_pip "web.py" do
+  action :install
 end
 
 # make sure that iptables allows for input/output on the port django will run on port 3000

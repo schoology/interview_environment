@@ -1,3 +1,15 @@
 [submodule "cookbooks/rvm"]
 	path = cookbooks/rvm
 	url = git://github.com/fnichol/chef-rvm.git
+[submodule "cookbooks/python"]
+	path = cookbooks/python
+	url = https://github.com/poise/python.git
+[submodule "cookbooks/build-essential"]
+	path = cookbooks/build-essential
+	url = https://github.com/opscode-cookbooks/build-essential.git
+[submodule "cookbooks/yum-epel"]
+	path = cookbooks/yum-epel
+	url = https://github.com/opscode-cookbooks/yum-epel
+[submodule "cookbooks/yum"]
+	path = cookbooks/yum
+	url = https://github.com/opscode-cookbooks/yum.git

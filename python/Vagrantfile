@@ -21,12 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.cookbooks_path = "../cookbooks"
     chef.add_recipe "basics"
     chef.add_recipe "mysql"
-    chef.add_recipe "python"
+    chef.add_recipe "python::package"
+    chef.add_recipe "python::pip"
+    chef.add_recipe "python_pip_mods"
   end
-
-  # Place any scripts in the path
-  config.vm.provision :shell, :inline => "
-    if [ ! -h /usr/local/bin/setup.sh ]; then
-      sudo ln -s /vagrant/scripts/* /usr/local/bin/
-    fi"
 end
