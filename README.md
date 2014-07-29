@@ -87,7 +87,7 @@ You can start the application by ssh'ing into the virtualbox and navigating to t
     cd /vagrant/src
     ruby interview.rb
 
-You can view the running Sinatra application on your host machine by browsing to [https://localhost:8092/](https://localhost:8092/)
+You can view the running Sinatra application on your host machine by browsing to [http://localhost:8092/](https://localhost:8092/)
 
 # The Python Box
 To set up the Python box, go to the root directory of the project and run
@@ -107,5 +107,5 @@ You can start the application by ssh'ing into the virtualbox and navigating to t
     cd /vagrant/src
     python interview.py
 
-You can view the running Web.py application on your host machine by browsing to [https://localhost:8091/](https://localhost:8091/)
+You can view the running Web.py application on your host machine by browsing to [http://localhost:8091/](https://localhost:8091/)
 
