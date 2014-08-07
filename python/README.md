@@ -8,9 +8,10 @@ web.py is a simple Python framework that helps you create a basic web applicatio
 * Web.py comes with a database wrapper which you can read more about here [http://webpy.org/docs/0.3/tutorial#databasing](http://webpy.org/docs/0.3/tutorial#databasing). The interview.py file that comes in the repo will take care of establishing the connection to the MySQL server installed on the box.
 
 ### Running Web.py
-You can start the application by ssh'ing into the virtualbox and navigating to the main python script already prepared for you
+You can start the application by ssh'ing into the virtualbox and navigating to the main python script already prepared for you. Note: Python [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) is installed and should be used when working with the interview.py application.
 
     cd /vagrant/src
+    source bin/activate #start python virtualenv
     python interview.py
 
-You can view the running Web.py application on your host machine by browsing to [http://localhost:8091/](https://localhost:8091/)
+You can view the running Web.py application on your host machine by browsing to [http://localhost:8091/](http://localhost:8091/)
