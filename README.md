@@ -1,20 +1,30 @@
+# Project Overview
+
+In order to effectively assess applicants in a variety of languages, we needed a fast way to setup technology stacks ready to be developed on. This project aims to do just that. There are three directories each containing a Vagrantfile that will provision a box ready to be developed on in that language. After setting Vagrant and Virtualbox up (outlined below) you can read more about setting up your chosen environment in the README's specific to that environment. Those README's also describe a bit about the frameworks used in the environment
+
+* [The PHP Box](php/)
+* [The Ruby Box](ruby/)
+* [The Python Box](python/)
+
 # Prerequisites
 1. Ensure your host computer has the following minimum specifications:
    * __Memory:__ 4Gb
    * __CPUs:__ 4vCPUs
 
-2. First, download and install [Virtualbox](https://www.virtualbox.org/) which is the default virtualization technology used by vagrant.
+2. git needs to be installed on your machine so this repository can be checked out and submodules can be included
 
-3. Next, download and install [vagrant](http://www.vagrantup.com/) which should be considered a driver, or front-end for various virtualization technologies (e.g. Virtualbox).
+3. Download and install [Virtualbox](https://www.virtualbox.org/) which is the default virtualization technology used by vagrant.
 
-4. Once vagrant and virtaulbox are installed, open up a command line and execute the following (note: In windows you should make sure vagrant is in your PATH environment variable).
+4. Download and install [vagrant](http://www.vagrantup.com/) which should be considered a driver, or front-end for various virtualization technologies (e.g. Virtualbox).
+
+5. Once vagrant and virtaulbox are installed, open up a command line and execute the following (note: In windows you should make sure vagrant is in your PATH environment variable).
         
          vagrant plugin install vagrant-omnibus
          vagrant plugin install vagrant-vbguest
 
    Installing the vagrant-vbguest plugin is necessary to ensure that vagrant checks that the version of VirtualBox Guest       Additions installed on the guest operating system matches the version of VirtualBox being used to run the virtual       machine. In cases where the VirtualBox Guest Addtions version does not match the version of VirtualBox, you may see vagrant report errors or have trouble providing basic functionality such as networking or mapping of shared drives.
 
-5. Finally, clone the repo and checkout any submodules
+6. Finally, clone this repo and checkout any submodules
 
          git submodule init
          git submodule update
@@ -35,10 +45,13 @@ To simply provision an already running box run
 To get a shell connection within the virtualbox run 
 
       vagrant ssh
+      
+**Note** - if you are running this on a Windows machine you will not have ssh available to you. You can use a client like [PuTTY](http://www.putty.org/) to connect to the box. The connection credentials for the client will look like:
 
-# Project Overview
-
-In order to effectively assess applicants in a variety of languages, we needed a fast way to setup technology stacks ready to be developed on. This project aims to do just that. There are three directories each containing a Vagrantfile that will provision a box ready to be developed on in that language.
+* **Host**: 127.0.0.1
+* **Port**: 2222
+* **Username**: vagrant
+* **Password**: vagrant
 
 # Connecting to MySQL
 Each flavor of virtualbox has MySQL installed. To connect from the host machine you can connect using the following credentials
@@ -48,29 +61,5 @@ Each flavor of virtualbox has MySQL installed. To connect from the host machine 
 * **Username**: interview
 * **Password**: interview
 
-# The PHP Box
-To set up the PHP box, go to the root directory of the project and run
 
-    cd php
-    vagrant up
-
-The PHP box mounts the src/codeigniter source at the boxes apache docroot. If you couldn't tell from the directory name, we have setup [codeigniter](http://ellislab.com/codeigniter) as the PHP framework. Codeigniter is a very simple MVC framework. After provisioning is complete you should be able to see the Codeigniter application running at [http://localhost:8090/home](http://localhost:8090/home).
-### A bit about Codeigniter
-If you are unfamiliar with codeigniter it might be worth briefly familiarizing yourself with how it work. Codeigniter is a very simple MVC. A few other things worht highlighting:
-
-* Codeigniter has a built in database abstraction layer and provisioning sets things up so you are ready to start writing queries against the MySQL database (after creating a schema and loading it with data). Read more about the [codeigniter database library](http://ellislab.com/codeigniter/user-guide/database/examples.html)
-* Templating in codeigniter is extremely simple but it is still worth taking note on how it is done. Read more about [codeigniter views](http://ellislab.com/codeigniter/user-guide/general/views.html)
-
-# The Ruby Box
-To set up the Ruby box, go to the root directory of the project and run
-
-    cd ruby
-    vagrant up
-
-The Ruby box has [Sinatra](http://www.sinatrarb.com/) installed on it by default. In the src directory there is a very basic interview.rb file which establishes a connection and adds one route that displays a basic template.
-### A bit about Sinatra
-Sinatra is an extremely simple framework that helps you create a basic web application. A few things worht highlighting:
-* It will be important to understand the templating used in the application in order to build UI's. Out of the box, this Sinatra install uses [erubis](http://www.kuwata-lab.com/erubis/) templating which comes with Ruby. If you feel comfortable with a different templating feel free to plug it in.
-* Ruby has [MySQL/Ruby](http://www.tmtm.org/en/mysql/ruby/) installed out of the box
-* The box also has activerecord installed
-
+ 
