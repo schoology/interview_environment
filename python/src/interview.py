@@ -1,3 +1,5 @@
+#! python3 
+
 import web # http://webpy.org/
 from web import db
 from web import template
@@ -7,8 +9,8 @@ urls = ('/', 'index')
 app = web.application(urls, globals())
 
 class index:
-	def GET(self):
-		return render.home("My Python Solution")
+    def GET(self):
+        return render.home("My Python Solution")
 
 
 

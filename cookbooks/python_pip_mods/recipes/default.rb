@@ -10,12 +10,22 @@
 #   action :install
 # end
 
+python_virtualenv "/vagrant/src" do
+	interpreter "python2"
+	owner "vagrant"
+	group "vagrant"
+	action :create
+end
+
+
 python_pip "MySQL-python" do
-  action :install
+  	virtualenv "/vagrant/src"
+	action :install
 end
 
 python_pip "web.py" do
-  action :install
+	virtualenv "/vagrant/src"
+	action :install
 end
 
 # make sure that iptables allows for input/output on the port django will run on port 3000

@@ -19,10 +19,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "../cookbooks"
+
     chef.add_recipe "basics"
     chef.add_recipe "mysql"
-    chef.add_recipe "python::package"
+    chef.add_recipe "python::source"
     chef.add_recipe "python::pip"
+    chef.add_recipe "python::virtualenv"
     chef.add_recipe "python_pip_mods"
+
+    chef.json = {
+      'python' => {
+         'version' => '2.7.5',
+         'make_options' => %W{altinstall}
+      }
+    }
   end
 end
