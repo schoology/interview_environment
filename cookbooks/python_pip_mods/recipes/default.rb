@@ -11,7 +11,7 @@
 # end
 
 python_virtualenv "/vagrant/src" do
-	interpreter "python2"
+	interpreter "python2.7"
 	owner "vagrant"
 	group "vagrant"
 	action :create
