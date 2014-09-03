@@ -18,12 +18,12 @@ python_virtualenv "/vagrant/src" do
 end
 
 
-python_pip "MySQL-python" do
-  	virtualenv "/vagrant/src"
+python_pip "Flask" do
+  virtualenv "/vagrant/src"
 	action :install
 end
 
-python_pip "web.py" do
+python_pip "flask-mysql" do
 	virtualenv "/vagrant/src"
 	action :install
 end

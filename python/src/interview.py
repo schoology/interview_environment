@@ -1,21 +1,20 @@
 #! python3 
 
-import web # http://webpy.org/
-from web import db
-from web import template
+from flask import Flask
+from flask import render_template
+from flaskext.mysql import MySQL
 
-render = web.template.render('templates', base='layout')
-urls = ('/', 'index')
-app = web.application(urls, globals())
-db = web.database(dbn='mysql', user='interview', pw='interview', db='interview')
+mysql = MySQL()
+app = Flask(__name__)
+app.config['MYSQL_DATABASE_USER'] = 'interview'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'interview'
+app.config['MYSQL_DATABASE_DB'] = 'interview'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(app)
 
-
-class index:
-    def GET(self):
-        return render.home("My Python Solution")
-
-
+@app.route('/')
+def index():	
+	return render_template('home.html', arg="My Python Solution")
 
 if __name__=="__main__":
-    app.run()
-
+    app.run(host='0.0.0.0', port=8080,debug=True)
