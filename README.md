@@ -15,9 +15,9 @@ In order to effectively assess applicants in a variety of languages, we needed a
 
 3. Download and install [Virtualbox](https://www.virtualbox.org/) which is the default virtualization technology used by vagrant.
 
-4. Download and install [vagrant](http://www.vagrantup.com/) which should be considered a driver, or front-end for various virtualization technologies (e.g. Virtualbox).
+4. Download and install [viagrant](http://www.vagrantup.com/) which should be considered a driver, or front-end for various virtualization technologies (e.g. VirtualBox).
 
-5. Once vagrant and virtaulbox are installed, open up a command line and execute the following (note: In windows you should make sure vagrant is in your PATH environment variable).
+5. Once vagrant and virtualbox are installed, open up a command line and execute the following (note: In windows you should make sure vagrant is in your PATH environment variable).
         
          vagrant plugin install vagrant-omnibus
          vagrant plugin install vagrant-vbguest
